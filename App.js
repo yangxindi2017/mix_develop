@@ -10,7 +10,6 @@ import Login from './src/common/Login';
 import Flash from './src/common/Flash';
 import Register from './src/common/Register';
 import Publish from './src/userinfor/Publish';
-import Mybox from './components/Mybox';
 
 /**
  * 只要是以后还需要跳转到的页面，都放到Router中
@@ -69,6 +68,7 @@ const App =() =>  {
     <Router
       backAndroidHandler={()=>{
         if(Actions.currentScene == 'home' || Actions.currentScene == 'login'){
+          console.log('hello')
           if(new Date().getTime()-now<2000){
             BackHandler.exitApp();
           }else{
@@ -77,6 +77,7 @@ const App =() =>  {
             return true;
           }
         }else{
+          console.log('11')
           Actions.pop();
           return true;
         }
@@ -147,7 +148,7 @@ const App =() =>  {
                 backButtonTextStyle={{color:'white'}}
               />
             </Scene> 
-            <Scene key='light' component={Mybox}/>
+            {/* <Scene key='light' component={Mybox}/> */}
           </Lightbox>
           <Scene initial={!isLogin} key="login" component={Login}/>
           <Scene key="register" component={Register}/>

@@ -13,14 +13,32 @@ import {
 } from "react-native";
 import { Icon } from '@ant-design/react-native';
 import Swiper from 'react-native-swiper';
+
 const {width,height} = Dimensions.get('window');
 const s = width/640;
 
 export default class Serve extends Component {
+    constructor(){
+        super();
+        this.state={
+            isLoading:false
+        }
+    }
+    componentDidMount(){
+        console.log('render')
+
+        this.setState({
+            isLoading:true
+        },()=>{
+
+            console.log('render1')
+        })
+
+   }
     render() {
         return (
             <View>
-                <StatusBar hidden={false} translucent={false} backgroundColor="#ccc"/>
+                <StatusBar hidden={false} translucent={false} backgroundColor="#f23030"/>
                 <ScrollView>
                     {/* 头部搜索框 */}
                     <View style={{backgroundColor:'#f23030',height:80*s,flexDirection:'row'}}>

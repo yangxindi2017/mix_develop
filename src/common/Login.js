@@ -19,15 +19,9 @@ export default class Login extends Component {
     this.state={
       username:'',
       pwd:'',
-      isLoad:false
+      isLoad:false,
+      isLoading:false
     }
-  }
-  componentDidMount(){
-    AsyncStorage.getItem('user')
-    .then(res=>{
-      let user = JSON.parse(res)
-      console.log('login',user)
-    })
   }
   
   userhandle = (text)=>{
@@ -53,7 +47,6 @@ export default class Login extends Component {
       }
     })
   }
-
     render() {
         return (
           <ImageBackground style={{flex:1}}
